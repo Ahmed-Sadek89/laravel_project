@@ -2,7 +2,6 @@
 
 @section('content')
 
-<h1>this is Update </h1>
 
 <div class="card container" style="width: 18rem;">
     <div class="card-body">
@@ -20,15 +19,20 @@
     <div class="form-group">
       <label>product name</label>
       <input type="text" class="form-control" placeholder="ex : product1" name='name' value='{{$info->name}}'>
+      <span style='color:red'>@error('name'){{$message}} @enderror</span>
     </div>
     <div class="form-group">
       <label>product price</label>
       <input type="number" class="form-control" placeholder="ex : @#" name='price' value='{{$info->price}}'>
+      <span style='color:red'>@error('price'){{$message}} @enderror</span>
+
     </div>
     <div class="form-group">
         <label>product details</label>
         <textarea class="form-control" placeholder="ex : any information about product" name='details' rows="3">{!! $info->details !!}</textarea>
-      </div>
+        <span style='color:red'>@error('price'){{$message}} @enderror</span>
+
+    </div>
 
     <button type="submit" class="btn btn-primary">Update</button>
   </form>

@@ -7,10 +7,9 @@
     @endphp
 
     <div class="jumbotron container">
-        <h1 class="display-4">create new product</h1>
+        <h1 class="display-4">Trash</h1>
         <div class="container"><hr class="my-4 container"></div>
-        <a class="btn btn-success btn-lg" href="{{route('Product.create')}}" role="button">create</a>
-        <a class="btn btn-dark btn-lg" href="{{route('Product.trash')}}" role="button">Trash</a>
+        <a class="btn btn-success btn-lg" href="{{route('Product')}}" role="button">home</a>
       </div>
 
       @if ($message = Session::get('succ'))
@@ -41,8 +40,7 @@
             <td>{{$item->price}} $</td>
             <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <a type="button" class="btn btn-primary" href="{{route('Product.edit',$item->id)}}">Edit</a>
-                    <a type="button" class="btn btn-warning" href="{{route('Product.moveToTrash',$item->id)}}">Soft Delete</a>
+                    <a type="button" class="btn btn-info" href="{{route('Product.restore',$item->id)}}">Restore</a>
                     <a type="button" class="btn btn-danger" href="{{route('Product.delete',$item->id)}}">Delete</a>
                  </div>
             </td>

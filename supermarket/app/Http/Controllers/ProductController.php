@@ -82,6 +82,24 @@ class ProductController extends Controller
         return redirect()->route("Product")->with('succ',$id.' product Deleted success :)');
     }
 
+//make soft_delete_option , trash_page to back or delete
 
+    public function moveToTrash($id){
+        $id=Product::find($id)->delete();
+        return redirect()->route("Product")->with('succ',$id.' product moved to trash successfully :)');
+    }
+
+    public function trash(){
+        $product=Product::onlyTrashed()->latest()->paginate(4);
+
+        return view('Product.trash',compact('product'));
+    }
+
+    public function restore($id){
+
+        $product=Product::onlyTrashed()->where('id',$id)->first()->restore();
+
+        return redirect()->route('Product')->with('succ',' product restored from trash successfully :)');
+    }
 
 }

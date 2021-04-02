@@ -33,6 +33,11 @@ Route::prefix('')->group(function(){
 
     Route::get('/delete/{id}','ProductController@delete')->name('Product.delete');
 
+    Route::get('/moveToTrash/{id}','ProductController@moveToTrash')->name('Product.moveToTrash');
+
+    Route::get('/trash','ProductController@trash')->name('Product.trash');
+
+    Route::get('/restore/{id}','ProductController@restore')->name('Product.restore');
 });
 
 
